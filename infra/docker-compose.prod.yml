@@ -6,8 +6,9 @@ services:
     env_file:
       - .env.prod
     environment:
-      SPRING_PROFILES_ACTIVE: prod
-      RDS_ENDPOINT: ${RDS_ENDPOINT}
+      - SPRING_PROFILES_ACTIVE=prod
+      - RDS_ENDPOINT=${RDS_ENDPOINT}
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     restart: unless-stopped
     ports:
       - "8080:8080"
